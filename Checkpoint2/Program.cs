@@ -8,7 +8,7 @@ List<Product> products = new List<Product>();
 
 while (true)
 {
-
+    
     Product current = addProduct();
     if (current == null)
     {
@@ -35,6 +35,8 @@ while (true)
 
 Product addProduct()
 {
+    
+
     Console.ForegroundColor = ConsoleColor.DarkYellow;
     Console.WriteLine("Enter a new product - Follow the steps | Press 'Q' to quit");
     Console.ResetColor();
@@ -74,11 +76,14 @@ Product addProduct()
 
 string printProduct(Product prod)
 {
-    return prod.category + ", " + prod.name + ", " + prod.price;
+    return prod.category.PadRight(20) + prod.name.PadRight(20) + prod.price;
 }
 
 void printAllProducts(List<Product> products)
 {
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+    Console.WriteLine("Category".PadRight(20) + "Name".PadRight(20) + "Price");
+    Console.ResetColor();
     foreach (Product prod in products)
     {
         Console.WriteLine(printProduct(prod));
